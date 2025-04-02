@@ -12,7 +12,7 @@ function Committee() {
   return (
     <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
       <Typography variant="h4" gutterBottom>
-        Strata Committee Members
+        DLF Camellias Committee Members
       </Typography>
       <Grid container spacing={3}>
         {committeeMembers.map((member, index) => (
