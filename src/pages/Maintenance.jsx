@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Grid, Card, CardContent, Typography, Chip, Button } from '@mui/material';
 
 function Maintenance() {
+  console.log('Maintenance Page');
   const maintenanceRequests = [
     {
       id: 1,

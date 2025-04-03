@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Grid, Paper, Typography, Box, Button } from '@mui/material';
-import { AccountBalance, Build, Announcement, Group, Event, Notifications, ArrowForward } from '@mui/icons-material';
+import { AccountBalance, Build, Announcement, Group, Event, Notifications, ArrowForward, Description } from '@mui/icons-material';
 import { LineChart, PieChart } from '@mui/x-charts';
 
 function Dashboard() {
@@ -86,6 +86,8 @@ function Dashboard() {
                   data: financialData,
                 },
               ]}
+              width="100%" // Adjust to take full width
+              height="100%" // Adjust to take full height
             />
           </Paper>
         </Grid>
@@ -100,8 +102,8 @@ function Dashboard() {
                   data: maintenanceData,
                 },
               ]}
-              width={400}
-              height={200}
+              width="100%" // Adjust to take full width
+              height="100%" // Adjust to take full height
             />
           </Paper>
         </Grid>
