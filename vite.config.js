@@ -3,30 +3,21 @@ import react from '@vitejs/plugin-react'
 import { ViteImageOptimizer } from 'vite-plugin-image-optimizer'
 import { resolve } from 'path'
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     react(),
     ViteImageOptimizer({
-      jpg: {
-        quality: 80,
-      },
-      png: {
-        quality: 80,
-      },
-      webp: {
-        quality: 80,
-      },
-      avif: {
-        quality: 80,
-      },
+      jpg: { quality: 80 },
+      png: { quality: 80 },
+      webp: { quality: 80 },
+      avif: { quality: 80 }
     }),
   ],
-  base: '/',
+  base: './', // ✅ Ensures proper asset loading in Vercel
   build: {
     outDir: 'dist',
     sourcemap: true,
-    minify: 'terser',
+    minify: 'esbuild', // ✅ Faster builds
     assetsDir: 'assets',
     rollupOptions: {
       output: {
@@ -42,6 +33,7 @@ export default defineConfig({
   },
   server: {
     port: 3000,
+    strictPort: true, // ✅ Ensures the port is always 3000
     open: true
   },
   preview: {
@@ -57,8 +49,6 @@ export default defineConfig({
       '@assets': resolve(__dirname, './src/assets'),
       '@utils': resolve(__dirname, './src/utils'),
       '@hooks': resolve(__dirname, './src/hooks'),
-      '@context': resolve(__dirname, './src/context'),
-      '@types': resolve(__dirname, './src/types'),
     }
   },
   optimizeDeps: {
@@ -66,8 +56,6 @@ export default defineConfig({
   },
   css: {
     devSourcemap: true,
-    modules: {
-      localsConvention: 'camelCase'
-    }
+    modules: { localsConvention: 'camelCase' }
   }
 })
