@@ -6,10 +6,15 @@ import App from './App';
 import theme from './theme';
 import './index.css';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <BrowserRouter>
-    <ThemeProvider theme={theme}>
-      <App />
-    </ThemeProvider>
-  </BrowserRouter>
+const rootElement = document.getElementById('root');
+if (!rootElement) throw new Error('Failed to find the root element');
+
+ReactDOM.createRoot(rootElement).render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <ThemeProvider theme={theme}>
+        <App />
+      </ThemeProvider>
+    </BrowserRouter>
+  </React.StrictMode>
 );
